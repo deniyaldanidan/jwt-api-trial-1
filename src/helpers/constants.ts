@@ -15,4 +15,29 @@ export const orderStatusEnum = [
   "returned",
 ] as const;
 
-type UserRoleType = (typeof userRolesEnum)[number];
+export const HTTP_STATUS_CODES = {
+  success: 200,
+  created: 201,
+  badRequest: 400,
+  internalServerErr: 500,
+  conflict: 409,
+  unauthorized: 401,
+  notFound: 404,
+  forbidden: 409,
+} as const;
+
+export const API_PATHS = {
+  itemCategory: {
+    base: "/item-category",
+    addItemCategory: "/add", // final will be => base + addItemCategory => /item-category/add
+  },
+  auth: {
+    base: "/auth",
+    signIn: "/sign-in",
+    signUp: "/sign-up",
+    refresh: "/refresh",
+    logout: "/logout",
+  },
+} as const;
+
+export const REFRESH_COOKIE_NAME = "refresh";
