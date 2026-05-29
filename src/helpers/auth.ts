@@ -2,6 +2,8 @@ import jwt from "jsonwebtoken";
 import "dotenv/config";
 import { AccessPayloadType, RefreshPayloadType, UserRoleType } from "./types";
 import { addDaysFromToday, daysInMilliSeconds } from "./helpers";
+import { Response } from "express";
+import authUserInfoZodSchema from "../zodSchema/authUserInfoSchema";
 
 export function getAccessSecret() {
   const accessSecret = process.env.ACCESS_SECRET;
@@ -31,4 +33,12 @@ export function signRefresh(payload: RefreshPayloadType) {
     maxAge: daysInMilliSeconds(3),
     expires: addDaysFromToday(3),
   };
+}
+
+export function authUserInfo(res: Response): AccessPayloadType {
+  const result = authUserInfoZodSchema.safeParse(res.locals);
+  if (!result.success) {
+    throw new Error("Couldn't get cuurent user-info from response-locals");
+  }
+  return result.data;
 }

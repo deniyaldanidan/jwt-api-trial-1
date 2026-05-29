@@ -30,6 +30,8 @@ export const API_PATHS = {
   itemCategory: {
     base: "/item-category",
     addItemCategory: "/add", // final will be => base + addItemCategory => /item-category/add
+    editItemCategory: "/edit",
+    deleteItemCategory: "/delete/:id",
   },
   auth: {
     base: "/auth",
@@ -37,6 +39,30 @@ export const API_PATHS = {
     signUp: "/sign-up",
     refresh: "/refresh",
     logout: "/logout",
+  },
+  item: {
+    base: "/item",
+    add: "/create",
+    view: {
+      listAll: "/view/all",
+      byCategory: "/view/category/:catid",
+      one: "/view/:id",
+    },
+    edit: "/edit",
+    delete: "/delete/:id",
+  },
+  cart: {
+    base: "/cart",
+    add: "/add",
+    remove: "/remove/",
+    clear: "/clear",
+    view: "/view",
+  },
+  wishlist: {
+    base: "/wishlist",
+    add: "/add/:id",
+    remove: "/remove/:id",
+    view: "/view",
   },
 } as const;
 

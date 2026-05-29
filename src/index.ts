@@ -9,6 +9,12 @@ import unauthorizedErrorHandler from "./middleware/unauthorizedErrHandler.middle
 import authRouter from "./routes/authRoutes.route";
 import zodValidationErrHandler from "./middleware/zodValidationErrHandler.middleware";
 import forbiddedErrHandler from "./middleware/forbiddenErrHandler.middleware";
+import resourceNotFoundErrHandler from "./middleware/resourceNotFoundErrHandler.middleware";
+import alreadyExistErrHandler from "./middleware/alreadyExistErrHandler.middleware";
+import operationFailedErrHandler from "./middleware/operationFailedErrHandler.middleware";
+import itemRouter from "./routes/itemRoutes.route";
+import cartRouter from "./routes/cartRoutes.route";
+import wishlistRouter from "./routes/wishlistsRoutes.route";
 
 const app = express();
 
@@ -24,14 +30,20 @@ app.use(express.urlencoded({ extended: false }));
  *
  */
 
-app.use(API_PATHS.itemCategory.base, itemCategoriesRouter);
 app.use(API_PATHS.auth.base, authRouter);
+app.use(API_PATHS.itemCategory.base, itemCategoriesRouter);
+app.use(API_PATHS.item.base, itemRouter);
+app.use(API_PATHS.cart.base, cartRouter);
+app.use(API_PATHS.wishlist.base, wishlistRouter);
 
 // APP-Level-Error Handlers
 app.use(jsonParseErrHandler);
 app.use(unauthorizedErrorHandler);
 app.use(forbiddedErrHandler);
-authRouter.use(zodValidationErrHandler);
+app.use(zodValidationErrHandler);
+app.use(resourceNotFoundErrHandler);
+app.use(alreadyExistErrHandler);
+app.use(operationFailedErrHandler);
 
 // Master-Error Handler
 app.use(masterErrHandler);

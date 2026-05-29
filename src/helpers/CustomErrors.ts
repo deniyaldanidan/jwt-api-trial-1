@@ -32,3 +32,15 @@ export class ForbiddenError extends Error {
     this.name = "ForbiddenError";
   }
 }
+
+export class ResourceNotFoundError extends Error {
+  public statusCode: number;
+  constructor(
+    message: string = "Requested resource not Found",
+    statusCode: number = HTTP_STATUS_CODES.notFound,
+  ) {
+    super(message);
+    this.name = "ResourceNotFoundError";
+    this.statusCode = statusCode;
+  }
+}

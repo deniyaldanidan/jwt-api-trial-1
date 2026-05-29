@@ -42,32 +42,41 @@ It has three roles:
 - [x] Zod Error Handler
 - [x] 404 HANDLER
 - [x] Already Exists Error Handler
-- [ ] Setup Authentication & Authorization
+- [x] Setup Authentication & Authorization
   - [x] Write the JWT Structure and functions
   - [x] /sign-up
   - [x] /sign-in
   - [x] /refresh
   - [x] /logout
-  - [ ] Role-based Authorization Middleware
-- [ ] Edit Category Api
-- [ ] Delete Category Api
-- [ ] Add Item Api
-- [ ] Delete Item API
-- [ ] Edit Item API
-- [ ] List Category API
-- [ ] View Item API
-- [ ] Add Item to Cart API
-- [ ] Remove Item from Cart API
-- [ ] Clear User Cart API
-- [ ] Add Item to Favorite API
-- [ ] Remove Item from Favorite API
+  - [x] Role-based Authorization Middleware
+- [x] Edit Category Api
+- [x] Delete Category Api
+- [x] Add Item Api
+- [x] List All-Items API
+- [x] List Items by Category API
+- [x] View Item API
+- [x] Edit Item API
+- [x] Delete Item API
+- [x] Add Item to Cart API
+- [x] Get Cart Items
+- [x] Remove Item from Cart API
+- [x] Clear User Cart API
+- [x] Add Item to wishlist API
+- [x] Get wishlist Items
+- [x] Remove Item from wishlist API
+
 - [ ] Edit User Location API
 - [ ] Edit User - Name API
+
+- [ ] Create order API
+- [ ] Cancel Order API
+- [ ] View ALL user orders API
+- [ ] View ALL ORDERS API (ADMIN)
+
+- [ ] View Order API (ADMIN & USER)
+- [ ] Change Order Status API
+
 - [ ] Delete User API
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
 
 
 ## Schema(s):

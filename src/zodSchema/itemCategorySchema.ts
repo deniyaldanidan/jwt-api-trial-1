@@ -12,3 +12,7 @@ export const addItemCategoryZodSchema = z.object(
   },
   { error: "Category object is missing" },
 );
+
+export const editItemCategoryZodSchema = addItemCategoryZodSchema.extend({
+  id: z.int("id should be an integer"),
+});
