@@ -15,6 +15,16 @@ export const orderStatusEnum = [
   "returned",
 ] as const;
 
+export const orderStatusObj = {
+  created: orderStatusEnum[0],
+  confirmed: orderStatusEnum[1],
+  packing: orderStatusEnum[2],
+  shipped: orderStatusEnum[3],
+  delivered: orderStatusEnum[4],
+  cancelled: orderStatusEnum[5],
+  returned: orderStatusEnum[6],
+};
+
 export const HTTP_STATUS_CODES = {
   success: 200,
   created: 201,
@@ -63,6 +73,23 @@ export const API_PATHS = {
     add: "/add/:id",
     remove: "/remove/:id",
     view: "/view",
+  },
+  user: {
+    base: "/user",
+    location: {
+      view: "/location/view",
+      edit: "/location/edit",
+    },
+    delete: "/delete-me",
+  },
+  order: {
+    base: "/order",
+    create: "/create",
+    viewAll: "/view/all",
+    viewOne: "/view/:id",
+    cancel: "/cancel/:id",
+    adminOnlyBase: "/admin/order",
+    changeOrderStatus: "/change-status/:id/:status",
   },
 } as const;
 

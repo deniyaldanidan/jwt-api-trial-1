@@ -15,6 +15,9 @@ import operationFailedErrHandler from "./middleware/operationFailedErrHandler.mi
 import itemRouter from "./routes/itemRoutes.route";
 import cartRouter from "./routes/cartRoutes.route";
 import wishlistRouter from "./routes/wishlistsRoutes.route";
+import userRouter from "./routes/userRoutes.route";
+import userOnlyOrderRouter from "./routes/userOnlyOrderRoutes.route";
+import adminOnlyOrderRoutes from "./routes/adminOnlyOrderRoutes.route";
 
 const app = express();
 
@@ -35,6 +38,9 @@ app.use(API_PATHS.itemCategory.base, itemCategoriesRouter);
 app.use(API_PATHS.item.base, itemRouter);
 app.use(API_PATHS.cart.base, cartRouter);
 app.use(API_PATHS.wishlist.base, wishlistRouter);
+app.use(API_PATHS.user.base, userRouter);
+app.use(API_PATHS.order.base, userOnlyOrderRouter);
+app.use(API_PATHS.order.adminOnlyBase, adminOnlyOrderRoutes);
 
 // APP-Level-Error Handlers
 app.use(jsonParseErrHandler);

@@ -10,11 +10,26 @@
 > Also run an periodic script to delete expired tokens. **OR** Delete expired tokens during `/auth/refresh` and `/auth/logout`.
 >
 > ### What i did?
-> Add a check in => `/auth/sign-in` to see if user has more than 3 sessions in DB, if they did => I'll delete all the previous sessions in the DB before creating the current one. I'm only allowing 4 active sessions. **THIS IS NOT AN IDEAL SOLUTION, but this is an sample project i developed for the sole purpose to test my python-automation skills so...**
->
+> Add a check in => `/auth/sign-in` to see if user has more than 3 sessions in DB, if they did => I'll delete all the previous sessions in the DB before creating the current one. I'm only allowing 4 active sessions. **THIS IS NOT AN IDEAL SOLUTION, but this is an sample project i developed for the sole purpose to test my python-automation/networking skills so...**
 
 > [!warning]
 > **Another flaw is strong-password check is not implemented.**
+
+> [!warning]
+> **Another flaw is user doesn't have NAME**, so it will be difficult for delivery persons or Support Persons to contact the user. So User Table should have a name field and accept name-input when user is signing-up
+
+
+> [!warning]
+> Since `order_item` table is just storing the `item_id` not the actual values and `onDelete=cascade`, Dśeleting the related item will delete the order_item, Which will eventually alter the order or cause errors. To solve this, store item info's all in the order_item table itself, so user or admin won't lose the past order information on item-deletion or don't delete the item just deactivate or archive it using a seperate column like `archived=boolean` in Item-table same goes for `Item-Category` table.
+
+> [!warning]
+> When deleting User through `/user/delete-me`, user's order-items and orders also get deleted, Which is not good so remove the `onDelete=cascade` in DB and also make related api-endpoint's handle it without it throwing error
+
+> [!warning]
+> `changeOrderStatus: /admin/order/change-status/:id/:status` endpoint is not a proper way, Cuz I think each status should have its own endpoint. And also need more order-status(es) And an API-ENDPOINT for return request And also an status called `refunded` and also a way to track *Is-User_PAID-OR-NOT?*. I'm juz doin this way cuz I'm out of TIME....
+
+> [!Important]
+> I'm not gonna correct these bugs anytime in the near future _bcuz_ **THIS IS JUST A SAMPLE API I DEVELOPED TO PRACTICE PYTHON NETWORKING/AUTOMATION.**
 
 
 I'm building an Groceries API, It's functionalities are:
@@ -64,19 +79,18 @@ It has three roles:
 - [x] Add Item to wishlist API
 - [x] Get wishlist Items
 - [x] Remove Item from wishlist API
-
-- [ ] Edit User Location API
-- [ ] Edit User - Name API
-
-- [ ] Create order API
-- [ ] Cancel Order API
-- [ ] View ALL user orders API
-- [ ] View ALL ORDERS API (ADMIN)
-
-- [ ] View Order API (ADMIN & USER)
-- [ ] Change Order Status API
-
-- [ ] Delete User API
+- [x] Edit User Location API
+- [x] View User location 
+- [x] Create order API
+- [x] View ALL user-orders API (USER)
+- [x] View Order API (USER)
+- [x] Cancel Order API (USER)
+- [x] Change Order Status API (ADMIN)
+- [x] View ALL ORDERS API (ADMIN)
+- [x] View Order API (ADMIN)
+- [x] Cancel Order API (ADMIN)
+- [x] Delete User API
+- [ ] Add API Documentation in README
 
 
 ## Schema(s):
@@ -123,3 +137,9 @@ sign(
 ```js
 "Bearer jwt-comes-here"
 ```
+
+
+## API-Documentation:
+| Endpoint | Name | Description | response | Errors      |
+| -------- | ---- | ----------- | -------- | ----------- |
+| Will     | Fill | this out    | in the   | next-commit |
