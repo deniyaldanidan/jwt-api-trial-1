@@ -1,5 +1,24 @@
 # JWT API Trials:
 
+I'm building an Groceries API, It's functionalities are:
+
+- List Groceries seperated by Categories
+- Add/Remove to User's Cart
+- Edit/Delete Category Info
+- View/Edit/Delete Grocery Item Info
+- Add/Remove to User's Wishlist (Favorites)
+- Create/Update/Delete order for User
+
+It has three roles:
+- Visitor
+- User
+- Owner/Admin
+
+
+<details>
+
+<summary>Warnings</summary>
+
 > [!warning]
 > This api got an huge flaw, Everytime an user sign-in, a new refresh-token is created in the DB. A malicious attacker can abuse it and make the DB unnecessarily crowded. 
 >
@@ -28,23 +47,13 @@
 > [!warning]
 > `changeOrderStatus: /admin/order/change-status/:id/:status` endpoint is not a proper way, Cuz I think each status should have its own endpoint. And also need more order-status(es) And an API-ENDPOINT for return request And also an status called `refunded` and also a way to track *Is-User_PAID-OR-NOT?*. I'm juz doin this way cuz I'm out of TIME....
 
+> [!warning]
+> API-Documentation is not right, It needs proper description & Errors column. Again **SO MUCH I WANNA DO, TOO LI'L TIME**...
+
 > [!Important]
 > I'm not gonna correct these bugs anytime in the near future _bcuz_ **THIS IS JUST A SAMPLE API I DEVELOPED TO PRACTICE PYTHON NETWORKING/AUTOMATION.**
 
-
-I'm building an Groceries API, It's functionalities are:
-
-- List Groceries seperated by Categories
-- Add/Remove to User's Cart
-- Edit/Delete Category Info
-- View/Edit/Delete Grocery Item Info
-- Add/Remove to User's Wishlist (Favorites)
-- Create/Update/Delete order for User
-
-It has three roles:
-- Visitor
-- User
-- Owner/Admin
+</details>
 
 
 ## Roadmap:
@@ -138,8 +147,3 @@ sign(
 "Bearer jwt-comes-here"
 ```
 
-
-## API-Documentation:
-| Endpoint | Name | Description | response | Errors      |
-| -------- | ---- | ----------- | -------- | ----------- |
-| Will     | Fill | this out    | in the   | next-commit |
