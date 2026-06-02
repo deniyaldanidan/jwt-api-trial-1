@@ -15,9 +15,7 @@ It has three roles:
 - Owner/Admin
 
 
-<details>
 
-<summary>Warnings</summary>
 
 > [!warning]
 > This api got an huge flaw, Everytime an user sign-in, a new refresh-token is created in the DB. A malicious attacker can abuse it and make the DB unnecessarily crowded. 
@@ -51,9 +49,8 @@ It has three roles:
 > API-Documentation is not right, It needs proper description & Errors column. Again **SO MUCH I WANNA DO, TOO LI'L TIME**...
 
 > [!Important]
-> I'm not gonna correct these bugs anytime in the near future _bcuz_ **THIS IS JUST A SAMPLE API I DEVELOPED TO PRACTICE PYTHON NETWORKING/AUTOMATION.**
+> I'm not gonna correct these bugs anytime in the near future _bcuz_ **THIS IS JUST A SAMPLE API I DEVELOPED TO PRACTICE PYTHON NETWORKING/AUTOMATION.** [Click here to visit repo of the Python project](https://github.com/deniyaldanidan/jwt-api-trial-1-py-script)
 
-</details>
 
 
 ## Roadmap:
