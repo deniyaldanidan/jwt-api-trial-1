@@ -4,8 +4,15 @@ import addItemCategoryController from "../controllers/itemCategories/addItemCate
 import authMiddleware from "../middleware/auth.middleware";
 import editItemCategoryController from "../controllers/itemCategories/editItemCategory.controller";
 import deleteItemCategoryController from "../controllers/itemCategories/deleteItemCategory.controller";
+import viewAllItemCategoriesController from "../controllers/itemCategories/viewAllItemCategories.controller";
 
 const itemCategoriesRouter = express.Router();
+
+// Guest-routes
+itemCategoriesRouter.get(
+  API_PATHS.itemCategory.viewAll,
+  viewAllItemCategoriesController,
+);
 
 // Auth-Middleware only allowing Admin's. So all the routes below will only be accessed by ADMIN
 itemCategoriesRouter.use(authMiddleware([userRolesObj["admin"]]));

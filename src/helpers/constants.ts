@@ -42,6 +42,7 @@ export const API_PATHS = {
     addItemCategory: "/add", // final will be => base + addItemCategory => /item-category/add
     editItemCategory: "/edit",
     deleteItemCategory: "/delete/:id",
+    viewAll: "/view/all",
   },
   auth: {
     base: "/auth",
