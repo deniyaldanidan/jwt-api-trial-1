@@ -46,7 +46,10 @@ It has three roles:
 > `changeOrderStatus: /admin/order/change-status/:id/:status` endpoint is not a proper way, Cuz I think each status should have its own endpoint. And also need more order-status(es) And an API-ENDPOINT for return request And also an status called `refunded` and also a way to track *Is-User_PAID-OR-NOT?*. I'm juz doin this way cuz I'm out of TIME....
 
 > [!warning]
-> API-Documentation is not right, It needs proper description & Errors column. Again **SO MUCH I WANNA DO, TOO LI'L TIME**...
+> API-Documentation is not done, Again **SO MUCH TO DO, TOO LI'L TIME**...
+
+> [!warning]
+> secure flag is set to false for the refresh cookie option in here: [helpers.ts](src/helpers/helpers.ts) Bcuz python's requests library wont send the refresh cookie to the localhost... The secure should be set to true
 
 > [!Important]
 > I'm not gonna correct these bugs anytime in the near future _bcuz_ **THIS IS JUST A SAMPLE API I DEVELOPED TO PRACTICE PYTHON NETWORKING/AUTOMATION.** [Click here to visit repo of the Python project](https://github.com/deniyaldanidan/jwt-api-trial-1-py-script)

@@ -17,5 +17,5 @@ export function signInSuccessObj(token: string) {
 }
 
 export function signInRefreshCookieOptions(maxAge: number): CookieOptions {
-  return { httpOnly: true, secure: true, sameSite: "none", maxAge };
+  return { httpOnly: true, secure: false /*true*/, sameSite: "none", maxAge };
 }

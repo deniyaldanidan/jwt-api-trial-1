@@ -7,7 +7,10 @@ import {
 import db from "../../db/db";
 import { sessions, users } from "../../db/schema";
 import { eq, or } from "drizzle-orm";
-import { UnAuthorizedError } from "../../helpers/CustomErrors";
+import {
+  ResourceNotFoundError,
+  UnAuthorizedError,
+} from "../../helpers/CustomErrors";
 import {
   HTTP_STATUS_CODES,
   REFRESH_COOKIE_NAME,
@@ -33,7 +36,7 @@ export default async function signInController(
     );
   const foundUser = dbResult[0];
   if (!foundUser?.id || !foundUser?.role) {
-    throw new UnAuthorizedError("Login failed. Invalid Credentials.");
+    throw new ResourceNotFoundError("User not found");
   }
   // compare pwd
   const match = await bcrypt.compare(parsedData.pwd, foundUser.password);
